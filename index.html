@@ -7,11 +7,27 @@
     <title>Password Input</title>
 </head>
 <body>
-    <form method="post" action="/">
+    <form id="passwordForm" method="post">
         <label for="password">Enter the password:</label>
         <input type="password" id="password" name="password" required>
         <p>Hint: What you are to me ('bestfriend' + yourname + what I call you + racial slur for black people + 'happybirthday') - all in lowercase, no spaces in between.</p>
         <button type="submit">Submit</button>
     </form>
+
+    <h1 id="result"></h1>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var password = document.getElementById('password').value;
+            var correctPassword = "bestfriendpannagapunganiggahappybirthday";
+
+            if (password === correctPassword) {
+                document.getElementById('result').innerHTML = '<h1>Success! Here is your real gift:</h1><a href="https://youtu.be/IHCHqIhMyRc" target="_blank">Real Gift</a>';
+            } else {
+                document.getElementById('result').innerHTML = '<h1>Here is your gift 🙂 <3:</h1><a href="https://r.mtdv.me/rOQ8mRSCSk" target="_blank">Gift</a>';
+            }
+        });
+    </script>
 </body>
 </html>
